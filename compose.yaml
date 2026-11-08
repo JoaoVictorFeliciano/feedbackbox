@@ -1,0 +1,16 @@
+
+services:
+  couchbase:
+    image: couchbase/server:community
+    container_name: feedbackbox-couchbase
+    ports:
+      - "8091-8094:8091-8094"
+      - "11210:11210"
+    volumes:
+      - feedbackbox_couchbase_data:/opt/couchbase/var
+    restart: unless-stopped
+
+volumes:
+  feedbackbox_couchbase_data:
+    external: true
+    name: feedbackbox_couchbase_data
